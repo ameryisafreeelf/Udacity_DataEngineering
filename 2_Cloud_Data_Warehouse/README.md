@@ -16,7 +16,7 @@ Sorting by SONGPLAY_ID in the fact_songplays table is intuitive- we're sorting b
 In the dim_songs table and the dim_artists table, we use their primary keys SONG_ID and ARTIST_ID as distkeys. This is an optimization- we distribute these two tables to each shard in the cluster. This makes our join operations faster by reducing networking overhead. 
 The dim_time table is sorted by timestamp and distributed.
 
-![image](cloud_DW.PNG)
+![image](cloud_DW.png)
 
 
 ## Running
