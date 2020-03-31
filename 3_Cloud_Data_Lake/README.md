@@ -5,6 +5,8 @@ Sparkify, a music streaming company, collects JSON files representing two critic
 # Data Pipeline
 As the JSON files are currently stored in S3, an intuitive pipeline for analysis queries is to transform them into relational tables using Spark (via EMR). Once we've created the schemas and tables, we can export the tables as parquet files back into S3 for storage. This helps to reduce on the cost of maintaining active EMR objects. When we need to perform analytical tasks using our data warehouse tables, we can load the parquet files in S3 back into Spark for querying. 
 
+    S3 (JSON files) -> AWS EMR Spark cluster -> S3 (Parquet)
+
 This pipeline is cost efficient. Since the EMR machines for Spark are run only to perform data transformation, Sparkify does not have to pay too much for the uptime of a Spark cluster. While this does mean that the parquet files must be loaded into EMR in order to access the data warehouse, we can trust that networking optimizations are performed under the hood by AWS, and this extra trouble is offset by the reduction in savings. 
 
 # Steps
