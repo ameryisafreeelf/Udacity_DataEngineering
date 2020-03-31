@@ -20,7 +20,9 @@ The dim_time table is sorted by timestamp and distributed.
 
 
 ## Running
-0. Create AWS account with credentials.
+This code is structured to require very little work before getting the cloud data warehouse up and running.
+
+0. Create AWS account with credentials. You will need to create an IAM role and a Redshift user and password. Fill out the configuration file. 
 1. Run set_up.py. This provisions the AWS resources we will need. 
 2. Run get_endpoint_roleARN.py in order to print the cluster host ("DWH_ENDPOINT") and roleARN ("DWH_ROLE_ARN"). Note that since we create a cluster in set_up.py, the cluster may take some time to provision. Therefore, if this results in " KeyError: 'Endpoint' ", just wait a little bit longer and run this script again. You can log on to your Redshift console to check the status of this cluster. 
 3. Record the DWH_ENDPOINT and DWH_ROLE_ARN in your dwh.cfg file. These credentials will be needed to continue. Put DWH_ENDPOINT under DWH 'HOST' and DWH_ROLE_ARN under DWH 'ARN'. Save the config file.
